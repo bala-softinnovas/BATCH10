@@ -16,7 +16,8 @@ export default class RecordFormAccount extends LightningElement {
         const sucessEvent = new ShowToastEvent({
             title: "Success",
             message: "Account record has been saved successfully!",
-            variant: "success"
+            variant: "success",
+            mode: "sticky"
         });
         this.dispatchEvent(sucessEvent);
     }
