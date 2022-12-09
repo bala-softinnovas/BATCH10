@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="TEMPLATE LOOPING 1">
+        <div class="slds-var-m-around_medium">
+            <template for:each={techs} for:item="item">
+                <div key={item}>{item}</div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="TEMPLATE LOOPING 2">
+        <div class="slds-var-m-around_medium">
+            <template for:each={accounts} for:item="acc">
+                <div key={acc.Id} class="slds-var-m-bottom_x-small">
+                    <strong>{acc.Name}</strong> <br/>
+                    {acc.Industry}, {acc.Rating}
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
