@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="BLOG VIEW FORM" icon-name="utility:edit_form">
+        <div class="slds-var-m-around_medium">
+            <lightning-record-view-form
+                object-api-name={objectName}
+                record-id={recordId}>
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-3">
+                        <lightning-output-field field-name={fields.name}></lightning-output-field>
+                        <lightning-output-field field-name={fields.author}></lightning-output-field>
+                        <lightning-output-field field-name={fields.topic}></lightning-output-field>
+                        <lightning-output-field field-name={fields.title}></lightning-output-field>
+                    </div>
+                    <div class="slds-col slds-size_2-of-3">
+                        <lightning-output-field field-name={fields.body}></lightning-output-field>
+                    </div>
+                </div>
+            </lightning-record-view-form>
+        </div>
+    </lightning-card>
+</template>
