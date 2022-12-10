@@ -3,7 +3,8 @@
         <div class="slds-var-m-around_medium">
             <lightning-record-edit-form
                 object-api-name={objectName}
-                record-id={recordId}>
+                record-id={recordId}
+                onsuccess={successHandler}>
                 <lightning-messages></lightning-messages>
                 <div class="slds-grid slds-gutters">
                     <div class="slds-col">

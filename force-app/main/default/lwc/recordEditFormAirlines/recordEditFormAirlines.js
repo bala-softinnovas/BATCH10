@@ -1,4 +1,5 @@
 import { LightningElement } from 'lwc';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 import AIRLINES_OBJECT from '@salesforce/schema/Airlines__c';
 import NAME_FIELD from '@salesforce/schema/Airlines__c.Name';
@@ -17,4 +18,13 @@ export default class RecordEditFormAirlines extends LightningElement {
         hq: HQ_FIELD,
         est: EST_FIELD
     };
+
+    successHandler() {
+        const successToast = new ShowToastEvent({
+            title: "Success",
+            message: "The Airlines record has been saved successfully!",
+            variant: "success"
+        });
+        this.dispatchEvent(successToast);
+    }
 }
