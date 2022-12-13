@@ -1,16 +1,17 @@
 import { getObjectInfo } from 'lightning/uiObjectInfoApi';
 import { LightningElement, wire } from 'lwc';
 
-import ACCOUNT_OBJECT from '@salesforce/schema/Account';
+import CONTACT_OBJECT from '@salesforce/schema/Contact';
 
-export default class GetObjectInfoAccount extends LightningElement {
-    accRtId;
+export default class GetObjectInfoContact extends LightningElement {
 
-    @wire(getObjectInfo, {objectApiName: ACCOUNT_OBJECT})
+    contactRtId;
+
+    @wire(getObjectInfo, {objectApiName: CONTACT_OBJECT})
     infoHandler({data, error}) {
         if(data) {
             console.log(data);
-            this.accRtId = data.defaultRecordTypeId;
+            this.contactRtId = data.defaultRecordTypeId;
         }
         if(error) {
             console.log(error);
