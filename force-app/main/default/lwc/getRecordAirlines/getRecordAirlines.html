@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="GET RECORD AIRLINES">
+        <div class="slds-var-m-around_medium">
+            <template if:true={airlines}>
+                Airlines Name: {airlines.fields.Name.value} <br/>
+                Country: {airlines.fields.Country__c.value} <br/>
+                Head Quarters: {airlines.fields.Head_Quarters__c.value} <br/>
+                Established: {airlines.fields.Established__c.value} <br/>
+            </template>
+        </div>
+    </lightning-card>
+</template>
