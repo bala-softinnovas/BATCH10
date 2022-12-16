@@ -21,11 +21,19 @@ export default class GetRecordBlog extends LightningElement {
     recordHandler({data, error}) {
         if(data) {
             console.log(data);
-            this.author = getFieldValue(data, AUTHOR_FIELD);
+            //Approach 1
+            /*this.author = getFieldValue(data, AUTHOR_FIELD);
             this.name = getFieldValue(data, NAME_FIELD);
             this.body = getFieldValue(data, BODY_FIELD);
             this.title = getFieldValue(data, TITLE_FIELD);
-            this.topic = getFieldValue(data, TOPIC_FIELD);
+            this.topic = getFieldValue(data, TOPIC_FIELD);*/
+
+            //Approach 2
+            this.author = data.fields.Author__c.value;
+            this.name = data.fields.Name.value;
+            this.body = data.fields.Body__c.value;
+            this.title = data.fields.Title__c.value;
+            this.topic = data.fields.Topic__c.value;
         }
         if(error) {
             console.error(error);
