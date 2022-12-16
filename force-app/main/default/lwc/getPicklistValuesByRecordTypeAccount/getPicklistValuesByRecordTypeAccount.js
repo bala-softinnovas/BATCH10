@@ -8,6 +8,16 @@ export default class GetPicklistValuesByRecordTypeAccount extends LightningEleme
     accountRtId;
     industryOptions = [];
     typeOptions = [];
+    selectedIndustry;
+    selectedType;
+
+    changeHandler(event) {
+        if(event.target.label === "Select Industry") {
+            this.selectedIndustry = event.target.value;
+        } else {
+            this.selectedType = event.target.value;
+        }
+    }
 
     @wire(getObjectInfo, {objectApiName: ACCOUNT_OBJECT})
     infoHandler({data, error}) {
