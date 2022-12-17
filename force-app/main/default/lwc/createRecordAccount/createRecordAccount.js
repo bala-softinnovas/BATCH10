@@ -20,7 +20,8 @@ export default class CreateRecordAccount extends LightningElement {
     }
 
     cancelAccount() {
-
+        this.template.querySelector("form.accountform").reset();
+        this.formdata = {};
     }
 
     saveAccount() {
@@ -50,6 +51,9 @@ export default class CreateRecordAccount extends LightningElement {
         createRecord(recordInput)
             .then(result => {
                 console.log(result);
+                this.template.querySelector("form.accountform").reset();
+                this.formdata = {};
+                //add toast message
             })
             .catch(error => {
                 console.error(error);
