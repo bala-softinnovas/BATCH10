@@ -1,10 +1,12 @@
-import { LightningElement, track } from 'lwc';
+import { LightningElement, track, wire } from 'lwc';
 
 import ACCOUNT_OBJECT from '@salesforce/schema/Account';
 import { createRecord } from 'lightning/uiRecordApi';
+import { getObjectInfo, getPicklistValues } from 'lightning/uiObjectInfoApi';
+import INDUSTRY_FIELD from '@salesforce/schema/Account.Industry';
 
 export default class CreateRecordAccount extends LightningElement {
-
+    industryOptions = [];
     @track formdata = {};
     /* Aim is to prepare data in this format
     formdata = {
@@ -12,6 +14,18 @@ export default class CreateRecordAccount extends LightningElement {
         Industry: "Biotechnology",
         AnnualRevenue: 100000000
     }*/
+    @wire(getObjectInfo, {objectApiName: ACCOUNT_OBJECT})
+    accInfo;
+
+    @wire(getPicklistValues, {fieldApiName: INDUSTRY_FIELD, recordTypeId: '$accInfo.data.defaultRecordTypeId'})
+    picklistHandler({data, error}) {
+        if(data) {
+            this.industryOptions = data.values;
+        }
+        if(error) {
+            console.error(error);
+        }
+    }
 
     changeHandler(event) {
         const name = event.target.name;
