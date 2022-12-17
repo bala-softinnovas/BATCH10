@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title="Create Blog" icon-name="utility:note">
+        <div class="slds-var-m-around_medium">
+            <form class="blogform">
+                <lightning-input 
+                    label="Author" 
+                    name="Author__c"
+                    onchange={changeHandler}>
+                </lightning-input>
+                <lightning-input 
+                    label="Topic" 
+                    name="Topic__c" 
+                    onchange={changeHandler}>
+                </lightning-input>
+                <lightning-input 
+                    label="Title" 
+                    name="Title__c" 
+                    onchange={changeHandler}>
+                </lightning-input>
+                <lightning-textarea
+                    label="Content"
+                    name="Body__c"
+                    onchange={changeHandler}>
+                </lightning-textarea>
+                <div class="slds-var-m-top_x-small slds-align_absolute-center">
+                    <lightning-button
+                        label="Cancel"
+                        variant="neutral"
+                        class="slds-var-m-right_x-small"
+                        onclick={cancelBlog}>
+                    </lightning-button>
+                    <lightning-button
+                        label="Save"
+                        variant="brand"
+                        onclick={saveBlog}>
+                    </lightning-button>
+                </div>
+            </form>
+        </div>
+    </lightning-card>
+</template>
