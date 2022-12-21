@@ -1,0 +1,52 @@
+<template>
+    <lightning-card title="Update Record" icon-name="standard:account">
+        <div class="slds-var-m-around_medium">
+            <template if:true={account.data}>
+                <form class="accform">
+                    <lightning-input
+                        type="text"
+                        label="Account Name"
+                        value={account.data.fields.Name.value}
+                        name="Name"
+                        onchange={changeHandler}>
+                    </lightning-input>
+                    <lightning-combobox
+                        label="Type"
+                        value={account.data.fields.Type.value}
+                        name="Type"
+                        options={typeOptions}
+                        onchange={changeHandler}>
+                    </lightning-combobox>
+                    <lightning-combobox
+                        label="Industry"
+                        value={account.data.fields.Industry.value}
+                        name="Industry"
+                        options={industryOptions}
+                        onchange={changeHandler}>
+                    </lightning-combobox>
+                    <lightning-input
+                        type="number"
+                        label="Annual Revenue"
+                        value={account.data.fields.AnnualRevenue.value}
+                        name="AnnualRevenue"
+                        onchange={changeHandler}>
+                    </lightning-input>
+                    <lightning-input
+                        type="checkbox"
+                        label="Important?"
+                        checked={account.data.fields.Important__c.value}
+                        name="Important__c"
+                        onchange={changeHandler}>
+                    </lightning-input>
+                    <div class="slds-var-m-top_x-small slds-align_absolute-center">
+                        <lightning-button
+                            label="Update"
+                            variant="brand"
+                            onclick={saveAccount}>
+                        </lightning-button>
+                    </div>
+                </form>
+            </template>
+        </div>
+    </lightning-card>
+</template>
