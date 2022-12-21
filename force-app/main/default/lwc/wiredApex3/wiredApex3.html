@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Recent Leads" icon-name="standard:lead">
+        <div class="slds-var-m-around_medium">
+            <template if:true={leads.data}>
+                <div class="slds-grid slds-gutters">
+                    <template for:each={leads.data} for:item="lead">
+                        <div key={lead.Id} class="slds-box slds-var-m-right_x-small slds-col">
+                            <strong>{lead.FirstName}, {lead.LastName}</strong> <br/>
+                            {lead.Title}, <br/>
+                            {lead.Company}
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
