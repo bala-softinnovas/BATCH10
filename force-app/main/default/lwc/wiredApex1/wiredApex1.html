@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Top 5 Accounts" icon-name="standard:account">
+        <div class="slds-var-m-around_medium">
+            <lightning-datatable
+                key-field="Id"
+                data={accounts.data}
+                columns={columns}
+                hide-checkbox-column>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Matching Opps" icon-name="standard:opportunity">
+        <div class="slds-var-m-around_medium">
+            <lightning-datatable
+                key-field="Id"
+                data={opps.data}
+                columns={columns}>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>
