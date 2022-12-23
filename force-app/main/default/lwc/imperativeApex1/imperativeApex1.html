@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Get Top 5 Accounts" icon-name="standard:account">
+        <div class="slds-var-m-around_medium">
+            <lightning-button
+                label="Get Accounts"
+                variant="brand"
+                class="slds-var-m-right_x-small"
+                onclick={fetchAccounts}>
+            </lightning-button>
+            <lightning-button
+                label="Hide Accounts"
+                variant="destructive"
+                onclick={hideAccounts}>
+            </lightning-button>
+
+            <template if:true={accounts}>
+                <div class="slds-var-m-top_small">
+                    <lightning-datatable
+                        key-field="Id"
+                        data={accounts}
+                        columns={columns}>
+                    </lightning-datatable>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
