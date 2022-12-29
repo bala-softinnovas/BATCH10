@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="LMS Web Component">
+        <div class="slds-var-m-around_medium">
+            <lightning-input
+                type="text"
+                label="Enter message to publish"
+                onchange={changeHandler}>
+            </lightning-input>
+
+            <div class="slds-var-m-top_small">
+                <lightning-button
+                    label="Publish"
+                    variant="brand"
+                    onclick={clickHandler}>
+                </lightning-button>
+            </div>
+
+            <div class="slds-var-m-top_small">
+                <div>
+                    <strong>Message Received:</strong> <br/> 
+                    {messageReceived}
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>

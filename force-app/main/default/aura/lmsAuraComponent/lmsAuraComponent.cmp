@@ -1,0 +1,36 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:attribute name="messageReceived" type="String" default="No message received yet!" />
+    <aura:attribute name="messageValue" type="String" />
+    <lightning:messageChannel
+        type="SampleMessageChannel__c"
+        aura:id="SampleMessageChannel"
+        onMessage="{!c.handleMessage}"
+        scope="APPLICATION"
+    />
+
+    <lightning:card title="LMS Aura Component">
+        <div class="slds-var-m-around_medium">
+            <label>Enter a message to publish</label>
+            <input type="text"
+                aura:id="messageInput"
+                class="slds-input"
+                value="{!v.messageValue}"
+                onchange="{!c.handleChange}"
+            />
+
+            <div class="slds-var-m-top_small">
+                <lightning:button
+                    label="Publish"
+                    variant="brand"
+                    onclick="{!c.publishHandler}"
+                />
+            </div>
+
+            <div class="slds-var-m-top_small">
+                <strong>Message Received:</strong> <br/>
+                <lightning:formattedText value="{!v.messageReceived}" />
+            </div>
+        </div> 
+    </lightning:card>
+
+</aura:component>	

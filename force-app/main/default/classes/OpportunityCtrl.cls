@@ -8,4 +8,13 @@ public with sharing class OpportunityCtrl {
                 ORDER BY Amount DESC
                 LIMIT 5];
     }
+
+    @AuraEnabled 
+    public static Decimal getTotalAmount(String stage) {
+        Decimal total = 0;
+        for(Opportunity opp : [SELECT Id, Amount FROM Opportunity WHERE StageName = :stage AND Amount != null]) {
+            total = total + opp.Amount;
+        }
+        return total;
+    }
 }

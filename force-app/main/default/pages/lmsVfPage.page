@@ -1,0 +1,38 @@
+<apex:page lightningStylesheets="true">
+    <apex:slds/>
+
+    <div>
+        <div class="slds-var-m-around_medium">
+            <p>Enter a message to publish</p>
+            <input type="text" class="slds-input" id="messageInput" />
+
+            <div class="slds-var-m-top_small">
+                <button class="slds-button slds-button_brand" onclick="publishHandler()">Publish</button> 
+            </div>
+
+            <div class="slds-var-m-top_small">
+                <strong>Received Message:</strong> <br/>
+                <div id="receivedMessage">No message received yet!</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let SAMPLE_MC = "{!$MessageChannel.SampleMessageChannel__c}";
+        sforce.one.subscribe(SAMPLE_MC, msgHandler, {scope: "APPLICATION"});
+
+        function publishHandler() {
+            let message = {
+                lmsData: {
+                    value: document.getElementById("messageInput").value
+                }
+            };
+            sforce.one.publish(SAMPLE_MC, message);
+        }
+
+        function msgHandler(message) {
+            document.getElementById("receivedMessage").innerHTML = message.lmsData.value;
+        }
+    </script>
+
+</apex:page>
