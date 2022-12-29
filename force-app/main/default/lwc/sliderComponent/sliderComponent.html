@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Slider">
+        <lightning-button
+            label="Reset"
+            slot="actions"
+            onclick={resetHandler}>
+        </lightning-button>
+        <div class="slds-var-m-around_medium">
+            <lightning-input   
+                type="number"
+                label="Enter a value"
+                onchange={changeHandler}>
+            </lightning-input>
+            <c-slider
+                val={value}>
+            </c-slider>
+        </div>
+    </lightning-card>
+</template>
