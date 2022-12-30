@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Child 2 Parent Comm">
+        <div class="slds-var-m-around_medium">
+            <lightning-button
+                label="Show Modal"
+                variant="brand"
+                onclick={clickHandler}>
+            </lightning-button>
+            <template if:true={showModal}>
+                <c-modal-component
+                    onclose={childHandler}>
+                </c-modal-component>
+            </template>
+            <div class="slds-var-m-top_small">
+                <template if:true={message}>
+                    {message.Name} <br/>
+                    {message.Company}
+                </template>                
+            </div>
+        </div>
+    </lightning-card>
+</template>
