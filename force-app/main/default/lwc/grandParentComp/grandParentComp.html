@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Event Bubbling">
+        <div class="slds-var-m-around_medium">
+            <strong>I am the grand parent component!</strong> <br/>
+            <c-parent-comp
+                onshow={showHandler}>
+            </c-parent-comp>
+        </div>
+    </lightning-card>
+</template>
