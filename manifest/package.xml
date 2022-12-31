@@ -55,5 +55,9 @@
         <members>*</members>
         <name>CustomNotificationType</name>
     </types>
+    <types>
+        <members>*</members>
+        <name>LightningMessageChannel</name>
+    </types>
     <version>55.0</version>
 </Package>
