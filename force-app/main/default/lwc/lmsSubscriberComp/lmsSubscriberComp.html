@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="LMS Subscriber Comp">
+        <div class="slds-var-m-around_medium">
+            <strong>Message Received:</strong> <br/>
+            <template if:true={messageReceived}>
+                    Knock.. Knock.. You have received a {messageReceived.lmsData.name} <br/>
+                    It was {messageReceived.lmsData.type} <br/>
+                    And the message is: {messageReceived.lmsData.value}
+            </template>
+        </div>
+    </lightning-card>
+</template>
